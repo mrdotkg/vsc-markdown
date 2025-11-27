@@ -77,6 +77,15 @@
 				"displayName": "VSC Markdown Editor",
 				"selector": [
 					{
+						"filenamePattern": "file:/**/*.MD"
+					},
+					{
+						"filenamePattern": "file:/**/*.mD"
+					},
+					{
+						"filenamePattern": "file:/**/*.Md"
+					},
+					{
 						"filenamePattern": "file:/**/*.md"
 					},
 					{
@@ -103,65 +112,6 @@
 					"type": "boolean",
 					"default": true,
 					"description": "Preview code in markdown."
-				},
-				"vsc-markdown.preventMacOptionKey": {
-					"type": "boolean",
-					"default": true,
-					"description": "Prevent MacOS option key in the markdown editor."
-				},
-				"vsc-markdown.editorTheme": {
-					"type": "string",
-					"enum": [
-						"Auto",
-						"Light",
-						"Solarized"
-					],
-					"default": "Auto",
-					"markdownDescription": "The theme for the Markdown editor."
-				},
-				"vsc-markdown.previewCodeHighlight.style": {
-					"type": "string",
-					"enum": [
-						"abap",
-						"algol",
-						"algol_nu",
-						"arduino",
-						"autumn",
-						"borland",
-						"bw",
-						"colorful",
-						"dracula",
-						"emacs",
-						"friendly",
-						"fruity",
-						"github",
-						"igor",
-						"lovelace",
-						"manni",
-						"monokai",
-						"monokailight",
-						"murphy",
-						"native",
-						"paraiso-dark",
-						"paraiso-light",
-						"pastie",
-						"perldoc",
-						"pygments",
-						"rainbow_dash",
-						"rrt",
-						"solarized-dark",
-						"solarized-dark256",
-						"solarized-light",
-						"swapoff",
-						"tango",
-						"trac",
-						"vim",
-						"vs",
-						"xcode",
-						"ant-design"
-					],
-					"default": "bw",
-					"markdownDescription": "Default syntax highlight style of markdown preview code. Refer to [Chroma Style Gallery](https://xyproto.github.io/splash/docs/longer/all.html). Only applies when `#vsc-markdown.previewCode#` is enabled."
 				},
 				"vsc-markdown.previewCodeHighlight.showLineNumber": {
 					"type": "boolean",

@@ -1,4 +1,4 @@
-
+/* 
 .vditor-content hr {
     background-color: var(--hr-bg) !important;
 }
@@ -39,10 +39,11 @@
     font-size: var(--vscode-editor-font-size)
 }
 
+body,
 .vditor,
 .vditor-content,
-.vditor-content *:not(.hljs, .hljs *, .katex, .katex *, a, hr, .vditor-reset--error, code) {
-    background-color: transparent !important;
+.vditor-content * {
+    background-color: var(--bg-color);
     color: var(--front-color) !important;
 }
 
@@ -93,13 +94,3 @@ body[data-vscode-theme-kind="vscode-dark"] #vditor[data-editor-theme="Auto"] .vd
     filter: brightness(110%);
 }
 
-/* custom */
-.vditor-toolbar{
-    display: none;
-}
-
-.vditor-reset hr,
-.vditor-ir hr{
-    margin: revert;
-    display: revert;
-}

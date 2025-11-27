@@ -5,16 +5,17 @@
     <meta charset='utf-8'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="../node_modules/vditor/dist/index.css" />
+    <!-- <link rel="stylesheet" href="../node_modules/vditor/dist/index.css" /> -->
     <script src="../node_modules/vditor/dist/index.js"></script>
     <base href="{{baseUrl}}/">
-    <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="md.css" />
+    <!-- <link rel="stylesheet" href="hl.css" /> -->
+
     <meta id="configs" data-config='{{configs}}'>
 </head>
 
 <body class="showEditorSelection">
-    <div id="vditor" style="min-height: 100vh;"></div>
+    <div id="vditor"></div>
     <div class="dropdown-menu dropdown-menu-sm" id="context-menu" style="display: none;">
         <a class="dropdown-item" id="copy" href="#">Copy</a>
         <a class="dropdown-item" id="paste" href="#">Paste</a>
@@ -27,5 +28,6 @@
 
 <script src="../assets/lib/vscode.js"></script>
 <script src="index.js" type="module"></script>
+<link rel="stylesheet" href="index.css" />
 
 </html>

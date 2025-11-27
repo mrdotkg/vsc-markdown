@@ -71,21 +71,20 @@ waitForHandler(() => {
         cache: {
           enable: false,
         },
-        mode: 'wysiwyg',
+        mode: 'ir',
         lang: (config.editorLanguage || 'en_US'),
-        icon: "ant",
+        // icon: "ant",
         tab: '\t',
         preview: {
-          theme: {
-            path: `${md.rootPath}/css/content-theme`
-          },
+          theme: {current: 'none'},
           markdown: {
-            toc: true,
-            codeBlockPreview: config.previewCode,
+            toc: false,
+            codeBlockPreview: true,
             mark: false,
           },
           hljs: {
-            style: config.previewCodeHighlight.style,
+            enable: true,
+            style: 'vs',
             lineNumber: config.previewCodeHighlight.showLineNumber,
           },
           extPath: md.rootPath,
@@ -125,11 +124,11 @@ waitForHandler(() => {
         },
       });
 
-      autoSymbol(handler, editor, config);
-      createContextMenu(editor);
-      imageParser(config.viewAbsoluteLocal);
-      scrollEditor(md.scrollTop);
-      zoomElement('.vditor-content');
+      // autoSymbol(handler, editor, config);
+      // createContextMenu(editor);
+      // imageParser(config.viewAbsoluteLocal);
+      // scrollEditor(md.scrollTop);
+      // zoomElement('.vditor-content');
     }).emit("init");
   });
 });
@@ -140,8 +139,8 @@ waitForHandler(() => {
  * @param {String} theme The theme to add.
  */
 function addAutoTheme(rootPath, theme) {
-  loadCSS(rootPath, 'css/base.css');
-  loadTheme(rootPath, theme);
+  // loadCSS(rootPath, 'css/base.css');
+  // loadTheme(rootPath, theme);
 }
 
 /**

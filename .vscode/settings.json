@@ -7,7 +7,6 @@
         ".idea": true,
         ".vscode": true,
         ".vscodeignore": true,
-        "node_modules": true,
         "out/": true,
         "package-lock.json": true,
         "resources": true,

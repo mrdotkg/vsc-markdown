@@ -55,14 +55,27 @@ To use the default VS Code markdown editor instead:
 
 ## TODO
 
-- Figure out where to place vscode markdown alike css in the code among (base.css, light.css, auto.css, index.css)
-  - if color goes to light.css and dark.css both
-- Use a css to animate the toolbar, stay for longer May be click to show.
 - Make sure there are no difference between native markdown preview and our own preview.
 - remove whats not working and release first version of the extension.
-- Fix  missing services like -
-  - upload,
-  - content-theme,
-  - code-theme not applying immediately
-  - export,
-  - emoji,
+- Remove vditor.css.
+
+## System Design
+
+```text
+assets
+  logo.png
+src
+  ui
+    md-elements.css
+    editor.css
+    dark-light-theme.css
+  api
+    provider.js
+    service.js
+    events.js
+  ext.js
+  ext.html
+  ext.css
+package.json
+
+```

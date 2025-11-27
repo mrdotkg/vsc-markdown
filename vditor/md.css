@@ -16,12 +16,12 @@ body {
 }
 
 /* Reset margin top for elements */
-.vditor-reset h1, .vditor-reset h2, .vditor-reset h3, .vditor-reset h4, .vditor-reset h5, .vditor-reset h6,
-.vditor-reset p, .vditor-reset ol, .vditor-reset ul, .vditor-reset pre {
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, pre {
 	margin-top: 0;
 }
 
-.vditor-reset h1, .vditor-reset h2, .vditor-reset h3, .vditor-reset h4, .vditor-reset h5, .vditor-reset h6 {
+h1, h2, h3, h4, h5, h6 {
 	font-weight: 600;
 	margin-top: 24px;
 	margin-bottom: 16px;
@@ -53,108 +53,98 @@ body.scrollBeyondLastLine {
 	margin-bottom: calc(100vh - 22px);
 }
 
-body.showEditorSelection .code-line {
+body.showEditorSelection [data-block] {
 	position: relative;
 }
 
-body.showEditorSelection :not(tr,ul,ol).code-active-line:before,
-body.showEditorSelection :not(tr,ul,ol).code-line:hover:before {
+/* body.showEditorSelection :not(tr,ul,ol).code-active-line:before, */
+body.showEditorSelection [data-block]:hover:before {
 	content: "";
 	display: block;
 	position: absolute;
 	top: 0;
-	left: -12px;
+	left: -10px;
 	height: 100%;
+	z-index: 99999999999999;
+	/* border-left: 3px solid rgba(0, 0, 0, 0.40); */
 }
 
-.vscode-high-contrast.showEditorSelection  :not(tr,ul,ol).code-line .code-line:hover:before {
+.vscode-high-contrast.showEditorSelection [data-block]:hover:before{
 	border-left: none;
 }
 
 body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
+body.showEditorSelection li[data-block]:hover:before {
 	left: -30px;
 }
 
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
+.vscode-light.showEditorSelection [data-block]:hover:before {
 	border-left: 3px solid rgba(0, 0, 0, 0.40);
 }
 
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
+.vscode-dark.showEditorSelection [data-block]:hover:before {
 	border-left: 3px solid rgba(255, 255, 255, 0.60);
 }
 
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+.vscode-high-contrast.showEditorSelection [data-block]:hover:before {
 	border-left: 3px solid rgba(255, 160, 0, 1);
 }
 
 /* Prevent `sub` and `sup` elements from affecting line height */
-.vditor-reset sub,
-.vditor-reset sup {
+sub,
+sup {
 	line-height: 0;
 }
 
-.vditor-reset ul ul:first-child,
-.vditor-reset ul ol:first-child,
-.vditor-reset ol ul:first-child,
-.vditor-reset ol ol:first-child {
+ul ul:first-child,
+ul ol:first-child,
+ol ul:first-child,
+ol ol:first-child {
 	margin-bottom: 0;
 }
 
-.vditor-reset .img, .vditor-reset video {
+.img, video {
 	max-width: 100%;
 	max-height: 100%;
 }
 
-.vditor-reset a {
+a {
 	text-decoration: none;
 }
 
-.vditor-reset a:hover {
+a:hover {
 	text-decoration: underline;
 }
 
-.vditor-reset a:focus,
-.vditor-reset input:focus,
-.vditor-reset select:focus,
-.vditor-reset textarea:focus {
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
 	outline: 1px solid -webkit-focus-ring-color;
 	outline-offset: -1px;
 }
 
-.vditor-reset p {
+p {
 	margin-bottom: 16px;
 }
 
-.vditor-reset li p {
+li p {
 	margin-bottom: 0.7em;
 }
 
-.vditor-reset ul,
-.vditor-reset ol {
+ul,
+ol {
 	margin-bottom: 0.7em;
 }
 
-.vditor-reset hr {
+hr {
 	border: 0;
 	height: 1px;
-	/* border-bottom: 1px solid; */
+	border-bottom: 1px solid;
 	
 }
 
-.vditor-reset h1 {
+h1 {
 	font-size: 2em;
 	margin-top: 0;
 	padding-bottom: 0.3em;
@@ -162,26 +152,26 @@ body.showEditorSelection li.code-line:hover:before {
 	border-bottom-style: solid;
 }
 
-.vditor-reset h2 {
+h2 {
 	font-size: 1.5em;
 	padding-bottom: 0.3em;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
 
-.vditor-reset h3 {
+h3 {
 	font-size: 1.25em;
 }
 
-.vditor-reset h4 {
+h4 {
 	font-size: 1em;
 }
 
-.vditor-reset h5{
+h5{
 	font-size: 0.875em;
 }
 
-.vditor-reset h6{
+h6{
 	font-size: 0.82em;
 }
 
@@ -191,38 +181,40 @@ input {
   padding: 0;
   border: none;
 }
-.vditor-reset h6 {
+h6 {
 	font-size: 0.85em;
 }
 
-.vditor-reset table {
+table {
 	border-collapse: collapse;
 	margin-bottom: 0.7em;
 }
 
-.vditor-reset th {
+th {
 	text-align: left;
 	border-bottom: 1px solid;
 }
 
-.vditor-reset th,
-.vditor-reset td {
+th,
+td {
 	padding: 5px 10px;
 }
 
-.vditor-reset table > tbody > tr + tr > td {
+table > tbody > tr + tr > td {
 	border-top: 1px solid;
 }
 
-.vditor-reset blockquote {
+blockquote {
 	margin: 0;
 	padding: 0px 16px 0 10px;
 	border-left-width: 5px;
 	border-left-style: solid;
 	border-radius: 2px;
+	border-color: revert-layer;
+	background: var(--vscode-textBlockQuote-background);
 }
 
-.vditor-reset code {
+code {
 	font-family: var(--vscode-editor-font-family, "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace);
 	font-size: 1em;
 	line-height: 1.357em;
@@ -232,36 +224,36 @@ body.wordWrap pre {
 	white-space: pre-wrap;
 }
 
-.vditor-reset pre:not(.hljs),
-.vditor-reset pre.hljs code > div {
+pre:not(.hljs),
+pre.hljs code > div {
 	padding: 16px;
 	border-radius: 3px;
 	overflow: auto;
 }
 
-.vditor-reset pre code {
+pre code {
 	display: inline-block;
-	color: var(--vscode-editor-foreground);
+	/* color: var(--vscode-editor-foreground); */
 	tab-size: 4;
 	background: none;
 }
 
 /** Theming */
 
-.vditor-reset pre {
+pre {
 	background-color: var(--vscode-textCodeBlock-background);
 	border: 1px solid var(--vscode-widget-border);
 }
 
-.vditor-reset .vscode-high-contrast h1 {
+.vscode-high-contrast h1 {
 	border-color: rgb(0, 0, 0);
 }
 
-.vditor-reset .vscode-light th {
+.vscode-light th {
 	border-color: rgba(0, 0, 0, 0.69);
 }
 
-.vditor-reset .vscode-dark th {
+.vscode-dark th {
 	border-color: rgba(255, 255, 255, 0.69);
 }
 
