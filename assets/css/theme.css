@@ -31,8 +31,8 @@
 }
 
 .vditor-content code:not(.hljs) {
-    background-color: var(--code-bg-color) !important;
-    color: var(--front-color) !important;
+    /* background-color: var(--code-bg-color) !important; */
+    /* color: var(--front-color) !important; */
 }
 
 .vditor-reset {
