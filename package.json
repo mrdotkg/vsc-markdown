@@ -41,7 +41,7 @@
 			{
 				"command": "vsc-markdown.switch",
 				"title": "Toggle Editor",
-				"icon": "$(diff-ignored)"
+				"icon": "$(symbol-parameter)"
 			},
 			{
 				"command": "vsc-markdown.paste",
@@ -115,7 +115,7 @@
 				},
 				"vsc-markdown.previewCodeHighlight.showLineNumber": {
 					"type": "boolean",
-					"default": true,
+					"default": false,
 					"markdownDescription": "Show line numbers in markdown preview code window. Only applies when `#vsc-markdown.previewCode#` is enabled."
 				},
 				"vsc-markdown.workspacePathAsImageBasePath": {

@@ -151,12 +151,12 @@ table > tbody > tr + tr > td {
 	border-top: 1px solid ipo !important;
 	border-bottom: none !important;
 }
-input {
+/* input {
   font: inherit;
   line-height: inherit;
   padding: 0;
   border: none;
-}
+} */
 
 blockquote {
 	margin: 0;
@@ -258,16 +258,26 @@ pre code {
 }
 
 
-pre {
-	background-color: var(--vscode-textCodeBlock-background);
-	border: 1px solid var(--vscode-widget-border);
-}
 
 .vscode-high-contrast h1 {
 	border-color: rgb(0, 0, 0);
 }
 
  */
+
+pre {
+	background-color: var(--vscode-textCodeBlock-background) !important;
+	border: 1px solid var(--vscode-widget-border);
+}
+
+pre code {
+	font-size: 100% !important;
+	display: inline-block;
+	/* color: var(--vscode-editor-foreground) !important; */
+	tab-size: 4;
+	/* background: none; */
+	/* background-color: var(--vscode-textCodeBlock-background) !important; */
+}
 
 
 body.scrollBeyondLastLine {

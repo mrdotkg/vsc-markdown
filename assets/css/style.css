@@ -51,8 +51,7 @@
 }
 .hljs{
   background: transparent !important;
-  padding: 0 !important;
-
+  background-color: var(--vscode-textCodeBlock-background) !important;
 }
 
 /* Custom MD */
@@ -104,4 +103,8 @@ body.showEditorSelection [data-block]:hover:before {
 .vscode-dark .vditor-reset table tr th {
   /* border-top: none; */
   /* border-color: rgba(255, 255, 255, 0.69); */
+}
+.vditor-ir__link,
+.vditor-wysiwyg__link{
+  color: var(--vscode-textLink-foreground) !important;
 }

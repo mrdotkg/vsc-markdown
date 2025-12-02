@@ -41,7 +41,7 @@
 
 .vditor,
 .vditor-content,
-.vditor-content *:not(blockquote, blockquote p, .hljs, .hljs *, .katex, .katex *, a, hr, .vditor-reset--error, code) {
+.vditor-content *:not([data-type=a]>span, [data-type="code-block"]>pre, blockquote, blockquote p, .hljs, .hljs *, .katex, .katex *, a, hr, .vditor-reset--error, code) {
     background-color: var(--bg-color) !important;
     color: var(--front-color) !important;
 }

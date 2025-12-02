@@ -10,6 +10,7 @@ This extension aims to replace the built in markdown preview of VS Code.
 - Figure out automatic VSIX upload in Github releases.
 - Editor Scroll position is not being persisted across window reload.
 - Text align of table tr th should resemble that of built in preview - right if not mentioned.
+- Implemented scroll beyond last line is not working margin is not being applied.
 
 ## Identical to the built in Markdown Preview
 
@@ -20,6 +21,7 @@ Make sure there are no difference between native markdown preview and our own pr
 - Tables
 - Links
 - Inline Code
+- Code
 
 ## Extra
 
