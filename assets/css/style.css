@@ -52,6 +52,7 @@
 .hljs{
   background: transparent !important;
   background-color: var(--vscode-textCodeBlock-background) !important;
+  color: var(--vscode-editor-foreground) !important;
 }
 
 /* Custom MD */
