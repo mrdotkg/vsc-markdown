@@ -95,3 +95,13 @@ body.showEditorSelection [data-block]:hover:before {
 	z-index: 99999999999999;
 	border-left: 3px solid rgba(0, 0, 0, 0.40);
 }
+
+.vditor-reset table td, .vditor-reset table th {
+ /* border: none; */
+ white-space: unset;
+}
+
+.vscode-dark .vditor-reset table tr th {
+  /* border-top: none; */
+  /* border-color: rgba(255, 255, 255, 0.69); */
+}

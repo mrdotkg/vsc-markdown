@@ -117,11 +117,11 @@ h6{
 }
 
 .vscode-light th {
-	border-color: rgba(0, 0, 0, 0.69);
+	border-color: rgba(0, 0, 0, 0.69) !important;
 }
 
 .vscode-dark th {
-	border-color: rgba(255, 255, 255, 0.69);
+	border-color: rgba(255, 255, 255, 0.69) !important;
 }
 
 table {
@@ -130,13 +130,21 @@ table {
 }
 
 th {
-	text-align: left;
-	border-bottom: 1px solid;
+	/* text-align: left; */
+	border: none !important;
+	border-bottom: 1px solid !important;
 }
-
+tr{
+	border-top: none !important;
+}
+td{
+	border-right: none !important;
+	border-left: none !important;
+}
 th,
 td {
 	padding: 5px 10px;
+
 }
 
 table > tbody > tr + tr > td {
