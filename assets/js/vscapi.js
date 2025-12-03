@@ -84,4 +84,14 @@ window.addEventListener('message', event => {
       document.body.classList.remove('scrollBeyondLastLine');
     }
   }
+  if (message.type === 'updateActiveColorThemeKind') {
+      switch (message.value) {
+        case 'light':
+          vditor.setTheme('light','light','vs')
+          break;;
+        case 'dark':
+          vditor.setTheme('dark','dark','vs2015')
+          break;
+        }
+  }
 });

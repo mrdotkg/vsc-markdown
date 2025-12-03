@@ -64,7 +64,14 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
                 this.countStatus.hide()
             }
         });
-
+        // You can also listen for changes to the active color theme
+        vscode.window.onDidChangeActiveColorTheme(e => {
+            if (e.kind === vscode.ColorThemeKind.Dark) {
+                webview.postMessage({ type: 'updateActiveColorThemeKind', value: 'dark' });
+            } else if (e.kind === vscode.ColorThemeKind.Light) {
+                webview.postMessage({ type: 'updateActiveColorThemeKind', value: 'light' });
+            }
+        });
         let lastManualSaveTime: number;
         const config = vscode.workspace.getConfiguration("vsc-markdown");
         handler.on("init", () => {

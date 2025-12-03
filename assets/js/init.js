@@ -49,81 +49,82 @@ function waitForVditor(callback) {
 
 waitForHandler(() => {
   waitForVditor(() => {
-    handler.on("open", async (md) => {
+handler.on("open", async (md) => {
       const { config, language } = md;
       addAutoTheme(md.rootPath, config.editorTheme);
       handler.on('theme', (theme) => {
         loadTheme(md.rootPath, theme);
       });
       
-      const editor = new Vditor('editor', {
-        customWysiwygToolbar: () => {},
-        value: md.content,
-        height: document.documentElement.clientHeight,
-        outline: {
-          enable: config.openOutline,
-          position: 'right',
-        },
-        toolbarConfig: {
-          tipPosition: 'south',
-          hide: config.hideToolbar,
-        },
-        cache: {
-          enable: false,
-        },
-        mode: 'ir',
-        lang: (config.editorLanguage || 'en_US'),
-        // icon: "ant",
-        tab: '\t',
-        preview: {
-          theme: {current: 'none'},
-          markdown: {
-            toc: false,
-            codeBlockPreview: true,
-            mark: false,
-          },
-          hljs: {
-            enable: true,
-            style: 'vs',
-            lineNumber: config.previewCodeHighlight.showLineNumber,
-          },
-          extPath: md.rootPath,
-          math: {
-            engine: 'KaTeX',
-            inlineDigit: true,
-          },
-          actions: [],
-          mode: 'editor',
-        },
-        toolbar: await getToolbar(md.rootPath),
-        extPath: md.rootPath,
-        input(content) {
-          handler.emit("save", content);
-        },
-        upload: {
-          url: '/image',
-          accept: 'image/*',
-          handler(files) {
-            let reader = new FileReader();
-            reader.readAsBinaryString(files[0]);
-            reader.onloadend = () => {
-              handler.emit("img", reader.result);
-            };
-          },
-        },
-        hint: {
-          emoji: {},
-          extend: hotKeys,
-        },
-        after() {
-          handler.on("update", (content) => {
-            editor.setValue(content);
-          });
-          openLink();
-          onToolbarClick(editor);
-        },
+      const vditor = new Vditor('editor', {
+    customWysiwygToolbar: () => {},
+    value: md.content,
+    height: document.documentElement.clientHeight,
+    outline: {
+      enable: config.openOutline,
+      position: 'right',
+    },
+    toolbarConfig: {
+      tipPosition: 'south',
+      hide: config.hideToolbar,
+    },
+    cache: {
+      enable: false,
+    },
+    mode: 'ir',
+    lang: (config.editorLanguage || 'en_US'),
+    // icon: "ant",
+    tab: '\t',
+    preview: {
+      theme: {current: 'none'},
+      markdown: {
+        toc: false,
+        codeBlockPreview: true,
+        mark: false,
+      },
+      hljs: {
+        enable: true,
+        style: document.body.classList.contains('vscode-dark')? 'vs2015' : 'vs',
+        lineNumber: config.previewCodeHighlight.showLineNumber,
+      },
+      extPath: md.rootPath,
+      math: {
+        engine: 'KaTeX',
+        inlineDigit: true,
+      },
+      actions: [],
+      mode: 'editor',
+    },
+    toolbar: await getToolbar(md.rootPath),
+    extPath: md.rootPath,
+    input(content) {
+      handler.emit("save", content);
+    },
+    upload: {
+      url: '/image',
+      accept: 'image/*',
+      handler(files) {
+        let reader = new FileReader();
+        reader.readAsBinaryString(files[0]);
+        reader.onloadend = () => {
+          handler.emit("img", reader.result);
+        };
+      },
+    },
+    hint: {
+      emoji: {},
+      extend: hotKeys,
+    },
+    after() {
+      handler.on("update", (content) => {
+        editor.setValue(content);
       });
-    }).emit("init");
+      openLink();
+      onToolbarClick(editor);
+    },
+  });
+  window.vditor = vditor;
+}).emit("init");
   });
 });
 
