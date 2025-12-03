@@ -15,10 +15,7 @@ This extension aims to replace the built in markdown preview of VS Code.
 
 Make sure there are no difference between native markdown preview and our own preview.
 
-- Switch dark(vs2015)/light(vs) themes on dark/light theme switch.
-  - catch theme switch and update via setTheme.
 - Show marker at the block start on mouse hover.
-- Match Cursor color and size.
 
 ## Extra
 

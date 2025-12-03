@@ -112,3 +112,10 @@ body.showEditorSelection [data-block]:hover:before {
 #editor.vditor{
   height: 100% !important;
 }
+
+
+/* Target Vditor editable area */
+.vditor-ir, .vditor-wysiwyg, .vditor-sv {
+  caret-color: var(--vscode-editorCursor-foreground) !important;
+  caret-shape: inherit;
+}
