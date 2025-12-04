@@ -158,10 +158,6 @@ blockquote {
 	border-color: var(--vscode-textBlockQuote-border);
 	background: var(--vscode-textBlockQuote-background);
 }
-pre {
-	background-color: var(--vscode-textCodeBlock-background) !important;
-	border: 1px solid var(--vscode-widget-border);
-}
 
 pre code {
 	font-size: 100% !important;
