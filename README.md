@@ -2,7 +2,15 @@
 
 This extension aims to replace the built in markdown preview of VS Code.
 
+## Pre market release issues
+
+Make sure the dev, build, test and release is automated.
+
+- Review and confirm dev, build, release processes
+
 ## Issues
+
+Make sure the supported features run flawlessly
 
 - Ctrl + A inside code editing area should only select editable code.
 - On hover new styles appear, but if i scroll instead of mouse move the hover styling still remains.
@@ -14,8 +22,6 @@ This extension aims to replace the built in markdown preview of VS Code.
 ## Identical to the built in Markdown Preview
 
 Make sure there are no difference between native markdown preview and our own preview.
-
-- Show marker at the block start on mouse hover.
 
 ## Extra
 
