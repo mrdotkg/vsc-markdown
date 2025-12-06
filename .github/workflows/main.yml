@@ -14,6 +14,28 @@ jobs:
         node-version: 20.x
     - run: npm i
     - run: |
-        echo ">>> Start compile vscode-office."
+        echo ">>> Start compile vscode-markdown."
         npm run build
-        echo ">>> Compile vscode-office sucess!"
+        echo ">>> Compile vscode-markdown success!"
+    - run: npm run package
+    - name: Create Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: actions/create-release@v1
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ github.run_number }}
+        release_name: Release v${{ github.run_number }}
+        draft: false
+        prerelease: false
+    - name: Upload VSIX to Release
+      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./vsc-markdown-0.0.1.vsix
+        asset_name: vsc-markdown-0.0.1.vsix
+        asset_content_type: application/octet-stream

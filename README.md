@@ -4,9 +4,7 @@ This extension aims to replace the built in markdown preview of VS Code.
 
 ## Pre market release issues
 
-- Make sure the dev, build, test and release is automated.
 - No unused code.
-- The build does not run in dev command
 - Figure out automatic VSIX upload in Github releases.
 
 ## App Issues
