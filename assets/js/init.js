@@ -1,4 +1,4 @@
-import { openLink, hotKeys, getToolbar, onToolbarClick, imageParser } from "./util.js";
+import { openLink, hotKeys, getToolbar, onToolbarClick, imageParser, scrollEditor } from "./util.js";
 
 let state;
 
@@ -28,7 +28,7 @@ loadConfigs();
  * @param {Function} callback The callback function to execute when the handler is defined.
  */
 function waitForHandler(callback) {
-  if (typeof handler !== "undefined") {
+  if (typeof vscodeEvent !== "undefined") {
     callback();
   } else {
     setTimeout(() => waitForHandler(callback), 10);
@@ -49,20 +49,20 @@ function waitForVditor(callback) {
 
 waitForHandler(() => {
   waitForVditor(() => {
-    handler
+    vscodeEvent
       .on("open", async (md) => {
         const { config, language } = md;
-        addAutoTheme(md.rootPath, config.editorTheme);
-        handler.on("theme", (theme) => {
-          loadTheme(md.rootPath, theme);
-        });
+        // addAutoTheme(md.rootPath, config.editorTheme);
+        // vscodeEvent.on("theme", (theme) => {
+        //   loadTheme(md.rootPath, theme);
+        // });
 
-        const vditor = new Vditor("editor", {
+        window.vditor = new Vditor("editor", {
           customWysiwygToolbar: () => {},
           value: md.content,
           height: document.documentElement.clientHeight,
           outline: {
-            enable: config.openOutline,
+            enable: false,
             position: "right",
           },
           toolbarConfig: {
@@ -101,7 +101,7 @@ waitForHandler(() => {
           toolbar: await getToolbar(md.rootPath),
           extPath: md.rootPath,
           input(content) {
-            handler.emit("save", content);
+            vscodeEvent.emit("save", content);
           },
           upload: {
             url: "/image",
@@ -110,7 +110,7 @@ waitForHandler(() => {
               let reader = new FileReader();
               reader.readAsBinaryString(files[0]);
               reader.onloadend = () => {
-                handler.emit("img", reader.result);
+                vscodeEvent.emit("img", reader.result);
               };
             },
           },
@@ -119,15 +119,14 @@ waitForHandler(() => {
             extend: hotKeys,
           },
           after() {
-            handler.on("update", (content) => {
+            vscodeEvent.on("update", (content) => {
               window.vditor.setValue(content);
             });
             openLink();
-            onToolbarClick(window.vditor);
+            scrollEditor(md.scrollTop)
           },
         });
         imageParser(true);
-        window.vditor = vditor;
       })
       .emit("init");
   });

@@ -7,6 +7,7 @@ import { Util } from './common/util';
 import { Holder } from './common/holder';
 import { MarkdownService } from './service';
 import { Global } from '@/common/global';
+import { Output } from './common/output';
 
 /**
  * support view and edit Markdown features in VS Code Ui.
@@ -102,6 +103,7 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
                 vscode.env.openExternal(vscode.Uri.parse(uri));
             }
         }).on("scroll", ({ scrollTop }) => {
+            Output.log(scrollTop);
             this.state.update(`scrollTop_${document.uri.fsPath}`, scrollTop)
         }).on("img", async (img) => {
             const { relPath, fullPath } = adjustImgPath(uri)
@@ -173,9 +175,17 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
             readFileSync(`${this.extensionPath}/editor.html`, 'utf8')
                 .replace("{{rootPath}}", rootPath)                 // inject rootPath
                 .replace("{{baseUrl}}", baseUrl)                   // inject baseUrl
-                .replace(`{{configs}}`, JSON.stringify(configs)),       // inject configs (empty object)
-            webview,                                               // Webview instance
-            contextPath                                            // context path for resource resolution
+                .replace(
+                    `"{{configs}}"`,
+                    `'`+JSON.stringify({
+                        platform: process.platform,
+                        scrollBeyondLastLine: vscode.workspace
+                        .getConfiguration("editor")
+                        .get("scrollBeyondLastLine"),
+                    })+`'`
+                ),
+            webview,
+            contextPath
         );
 
         const configEd = vscode.workspace.getConfiguration('editor');
