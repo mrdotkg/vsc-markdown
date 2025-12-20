@@ -17,11 +17,12 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
     private extensionPath: string;
     private countStatus: vscode.StatusBarItem;
     private state: vscode.Memento;
+    private scrollTimeout: NodeJS.Timeout;
 
     constructor(private context: vscode.ExtensionContext) {
         this.extensionPath = context.extensionPath;
         this.countStatus = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-        this.state = context.globalState
+        this.state = context.workspaceState
     }
 
     private getFolders(): vscode.Uri[] {
@@ -61,6 +62,13 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
             if (e.webviewPanel.visible) {
                 this.updateCount(content)
                 this.countStatus.show()
+                // Restore scroll position when webview becomes visible/focused with slight delay
+                const scrollTop = this.state.get(`scrollTop_${document.uri.fsPath}`, 0);
+                if (scrollTop > 0) {
+                    setTimeout(() => {
+                        handler.emit('restoreScrollPosition', scrollTop);
+                    }, 100);
+                }
             } else {
                 this.countStatus.hide()
             }
@@ -77,6 +85,7 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
         const config = vscode.workspace.getConfiguration("vsc-markdown");
         handler.on("init", () => {
             const scrollTop = this.state.get(`scrollTop_${document.uri.fsPath}`, 0);
+            Output.log(`Loading scroll position for ${document.uri.fsPath}: ${scrollTop}`);
             handler.emit("open", {
                 title: basename(uri.fsPath),
                 config, scrollTop,
@@ -103,8 +112,13 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
                 vscode.env.openExternal(vscode.Uri.parse(uri));
             }
         }).on("scroll", ({ scrollTop }) => {
-            Output.log(scrollTop);
-            this.state.update(`scrollTop_${document.uri.fsPath}`, scrollTop)
+            Output.log(`Saving scroll position: ${scrollTop}`);
+            // Debounce scroll position updates to avoid excessive state writes
+            clearTimeout(this.scrollTimeout);
+            this.scrollTimeout = setTimeout(() => {
+                this.state.update(`scrollTop_${document.uri.fsPath}`, scrollTop);
+                Output.log(`Scroll position saved: ${scrollTop}`);
+            }, 150);
         }).on("img", async (img) => {
             const { relPath, fullPath } = adjustImgPath(uri)
             const imagePath = isAbsolute(fullPath) ? fullPath : `${resolve(uri.fsPath, "..")}/${relPath}`.replace(/\\/g, "/");

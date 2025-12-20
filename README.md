@@ -5,7 +5,7 @@ This extension aims to replace the built in markdown preview of VS Code.
 ## Pre market release issues
 
 - [ ] No unused code.
-- [ ] Persist scroll position
+- [X] Persist scroll position
 - [ ] Editor focus on winodw focus
 - [X] Parse Images
 - [X] Avoid git to open md with this editor.

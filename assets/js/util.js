@@ -129,10 +129,70 @@ export const openLink = () => {
     content.addEventListener('dblclick', clickCallback);
     content.addEventListener('click', clickCallback);
     content.addEventListener('auxclick', clickCallback);
-    document.querySelector(".vditor-reset").addEventListener("scroll", e => {
-        // 滚动有偏差
-        handler.emit("scroll", { scrollTop: e.target.scrollTop - 70 })
-    });
+    
+    // Add scroll event listener with retry mechanism
+    const addScrollListener = () => {
+        // Try multiple possible scroll containers
+        const possibleContainers = [
+            ".vditor-reset",
+            ".vditor-ir .vditor-reset", 
+            ".vditor-wysiwyg .vditor-reset",
+            ".vditor-ir__preview",
+            ".vditor-ir",
+            ".vditor"
+        ];
+        
+        let scrollContainer = null;
+        for (const selector of possibleContainers) {
+            scrollContainer = document.querySelector(selector);
+            if (scrollContainer) {
+                console.log(`Found scroll container with selector: ${selector}`);
+                break;
+            }
+        }
+        
+        if (!scrollContainer) {
+            console.log('No scroll container found, retrying...');
+            setTimeout(addScrollListener, 100);
+            return;
+        }
+        
+        console.log('Adding scroll listener to container:', scrollContainer);
+        console.log('Handler available:', typeof handler !== 'undefined' && handler !== null);
+        
+        if (typeof handler === 'undefined' || handler === null) {
+            console.error('Handler not available, scroll events cannot be emitted');
+            return;
+        }
+        
+        // Primary scroll listener on the found container
+        let lastScrollTime = 0;
+        scrollContainer.addEventListener("scroll", e => {
+            const now = Date.now();
+            if (now - lastScrollTime < 50) return; // Throttle to 50ms
+            lastScrollTime = now;
+            
+            const scrollTop = e.target.scrollTop - 70;
+            console.log('Container scroll event - scrollTop:', scrollTop, 'raw:', e.target.scrollTop);
+            handler.emit("scroll", { scrollTop });
+        });
+        
+        // Window scroll listener (primary since it's working)
+        let lastWindowScrollTime = 0;
+        window.addEventListener("scroll", e => {
+            const now = Date.now();
+            if (now - lastWindowScrollTime < 50) return; // Throttle to 50ms
+            lastWindowScrollTime = now;
+            
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            console.log('Window scroll event - scrollTop:', scrollTop - 70, 'raw:', scrollTop);
+            handler.emit("scroll", { scrollTop: scrollTop - 70 });
+        });
+        
+        console.log('All scroll listeners successfully attached');
+    };
+    
+    addScrollListener();
     document.querySelector(".vditor-ir").addEventListener('click', e => {
         let ele = e.target;
         if (ele.classList.contains('vditor-ir__link')) {
@@ -145,11 +205,46 @@ export const openLink = () => {
 }
 
 export function scrollEditor(top) {
+    if (!top || top <= 0) {
+        console.log('ScrollEditor: Invalid scroll position:', top);
+        return;
+    }
+    
+    console.log('ScrollEditor: Attempting to scroll to:', top);
+    
+    // Try window scroll first since it's working for detection
+    const tryWindowScroll = () => {
+        console.log('ScrollEditor: Trying window.scrollTo with:', top + 70);
+        window.scrollTo({ top: top + 70, behavior: 'auto' });
+        
+        setTimeout(() => {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            console.log('ScrollEditor: Window scroll result - current:', currentScroll, 'target:', top + 70);
+            if (Math.abs(currentScroll - (top + 70)) > 5) {
+                console.log('ScrollEditor: Window scroll fallback - setting scrollTop directly');
+                document.documentElement.scrollTop = top + 70;
+                document.body.scrollTop = top + 70; // For Safari
+            }
+        }, 100);
+    };
+    
+    // Also try container scroll as backup
     const scrollHack = setInterval(() => {
         const editorContainer = document.querySelector(".vditor-reset");
-        if (!editorContainer) return;
-        editorContainer.scrollTo({ top })
-        clearInterval(scrollHack)
+        if (!editorContainer) {
+            console.log('ScrollEditor: Editor container not found, trying window scroll');
+            tryWindowScroll();
+            clearInterval(scrollHack);
+            return;
+        }
+        
+        console.log('ScrollEditor: Trying container scroll to position:', top);
+        editorContainer.scrollTo({ top, behavior: 'auto' });
+        
+        // Also try window scroll since that's what's working for events
+        tryWindowScroll();
+        
+        clearInterval(scrollHack);
     }, 10);
 }
 
