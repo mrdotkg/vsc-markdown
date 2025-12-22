@@ -62,12 +62,12 @@ export class MarkdownEditorProvider implements vscode.CustomTextEditorProvider {
             if (e.webviewPanel.visible) {
                 this.updateCount(content)
                 this.countStatus.show()
-                // Restore scroll position when webview becomes visible/focused with slight delay
+                // Restore scroll position with delay to avoid interfering with focus
                 const scrollTop = this.state.get(`scrollTop_${document.uri.fsPath}`, 0);
                 if (scrollTop > 0) {
                     setTimeout(() => {
                         handler.emit('restoreScrollPosition', scrollTop);
-                    }, 100);
+                    }, 200); // Increased delay to allow focus restoration first
                 }
             } else {
                 this.countStatus.hide()
