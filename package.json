@@ -1,158 +1,173 @@
 {
-	"name": "vsc-markdown",
-	"displayName": "Elegant Markdown Editor for VS Code",
-	"description": "Instant Markdown rendering and editing with WYSIWYG support.",
-	"version": "0.0.1",
-	"publisher": "Butterops",
-	"icon": "assets/images/logo.png",
-	"engines": {
-		"vscode": "^1.106.0"
-	},
-	"keywords": [
-		"typora",
-		"markdown",
-		"editor",
-		"wysiwyg",
-		"rendering"
-	],
-	"categories": [
-		"Themes",
-		"Keymaps",
-		"Visualization",
-		"Notebooks",
-		"Education"
-	],
-	"bugs": {
-		"url": "https://github.com/mrdotkg/vsc-markdown/issues",
-		"email": "grv.rkg@gmail.com"
-	},
-	"homepage": "https://github.com/mrdotkg/vsc-markdown/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/mrdotkg/vsc-markdown.git"
-	},
-	"activationEvents": [
-		"onLanguage:markdown"
-	],
-	"main": "./out/extension.js",
-	"pricing": "Free",
-	"contributes": {
-		"commands": [
-			{
-				"command": "vsc-markdown.switch",
-				"title": "Toggle Editor",
-				"icon": "$(symbol-parameter)"
-			},
-			{
-				"command": "vsc-markdown.paste",
-				"title": "Enhance paste in markdown"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "vsc-markdown.paste",
-				"key": "ctrl+v",
-				"mac": "cmd+v",
-				"when": "!terminalFocus && !filesExplorerFocus && resourceLangId == markdown"
-			},
-			{
-				"command": "vsc-markdown.switch",
-				"key": "ctrl+alt+e",
-				"mac": "ctrl+cmd+e",
-				"when": "editorTextFocus && editorLangId == markdown"
-			}
-		],
-		"menus": {
-			"editor/title": [
-				{
-					"command": "vsc-markdown.switch",
-					"when": "resourceExtname == '.md'",
-					"group": "navigation@-2"
-				}
-			]
-		},
-		"customEditors": [
-			{
-				"viewType": "vsc-markdown",
-				"displayName": "VSC Markdown Editor",
-				"selector": [
-					{
-						"filenamePattern": "file:/**/*.MD"
-					},
-					{
-						"filenamePattern": "file:/**/*.mD"
-					},
-					{
-						"filenamePattern": "file:/**/*.Md"
-					},
-					{
-						"filenamePattern": "file:/**/*.md"
-					},
-					{
-						"filenamePattern": "file:/**/*.markdown"
-					}
-				]
-			}
-		],
-		"configuration": {
-			"type": "object",
-			"title": "Markdown Editor",
-			"properties": {
-				"vsc-markdown.openOutline": {
-					"type": "boolean",
-					"default": true,
-					"description": "Open markdown outline."
-				},
-				"vsc-markdown.hideToolbar": {
-					"type": "boolean",
-					"default": false,
-					"description": "Hide markdown toolbar."
-				},
-				"vsc-markdown.previewCode": {
-					"type": "boolean",
-					"default": true,
-					"description": "Preview code in markdown."
-				},
-				"vsc-markdown.previewCodeHighlight.showLineNumber": {
-					"type": "boolean",
-					"default": false,
-					"markdownDescription": "Show line numbers in markdown preview code window. Only applies when `#vsc-markdown.previewCode#` is enabled."
-				},
-				"vsc-markdown.workspacePathAsImageBasePath": {
-					"type": "boolean",
-					"default": false,
-					"description": "Using workspace path as markdown image base path."
-				},
-				"vsc-markdown.pasterImgPath": {
-					"type": "string",
-					"default": "image/${fileName}/${now}.png",
-					"description": "Markdown paste image path, variables: workspaceDir, fileName, now."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"dev": "node build.ts --mode=development",
-		"lint:fix": "eslint src/**/*.ts --fix",
-		"build": "rimraf out && node build.ts --mode=production",
-		"package": "vsce package --no-dependencies",
-		"publish": "vsce publish --no-dependencies",
-		"vscode:prepublish": "npm run build"
-	},
-	"devDependencies": {
-		"@types/node": "^22.10.0",
-		"@types/vscode": "^1.64.0",
-		"@typescript-eslint/eslint-plugin": "^7.1.1",
-		"@typescript-eslint/parser": "^7.1.1",
-		"esbuild": "^0.14.54",
-		"esbuild-plugin-copy": "^1.3.0",
-		"eslint": "^8.57.0",
-		"eslint-plugin-import": "^2.29.1",
-		"eslint-plugin-unused-imports": "^3.1.0",
-		 "rimraf": "^6.0.1",
-		 "@vscode/vsce": "^2.12.1"
-	},
-	"dependencies": {
-		"file-type": "^19.6.0"
-	}
+  "name": "vsc-markdown",
+  "displayName": "Elegant Markdown Editor for VS Code",
+  "description": "Instant Markdown rendering and editing with WYSIWYG support.",
+  "version": "0.0.1",
+  "publisher": "Butterops",
+  "icon": "assets/images/logo.png",
+  "engines": {
+    "vscode": "^1.106.0"
+  },
+  "keywords": [
+    "typora",
+    "markdown",
+    "editor",
+    "wysiwyg",
+    "rendering"
+  ],
+  "categories": [
+    "Themes",
+    "Keymaps",
+    "Visualization",
+    "Notebooks",
+    "Education"
+  ],
+  "bugs": {
+    "url": "https://github.com/mrdotkg/vsc-markdown/issues",
+    "email": "grv.rkg@gmail.com"
+  },
+  "homepage": "https://github.com/mrdotkg/vsc-markdown/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrdotkg/vsc-markdown.git"
+  },
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
+  "main": "./out/extension.js",
+  "pricing": "Free",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vsc-markdown.switch",
+        "title": "Toggle Editor",
+        "icon": "$(symbol-parameter)"
+      },
+      {
+        "command": "vsc-markdown.paste",
+        "title": "Enhance paste in markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH1",
+        "title": "Insert H1 Heading",
+        "icon": "$(symbol-method)"
+      },
+      {
+        "command": "vsc-markdown.insertBold",
+        "title": "Make text bold",
+        "icon": "$(bold)"
+      },
+      {
+        "command": "vsc-markdown.insertList",
+        "title": "Insert unordered list",
+        "icon": "$(list-unordered)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vsc-markdown.paste",
+        "key": "ctrl+v",
+        "mac": "cmd+v",
+        "when": "!terminalFocus && !filesExplorerFocus && resourceLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.switch",
+        "key": "ctrl+alt+e",
+        "mac": "ctrl+cmd+e",
+        "when": "editorTextFocus && editorLangId == markdown"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "vsc-markdown.switch",
+          "when": "resourceExtname == '.md'",
+          "group": "navigation@-2"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "vsc-markdown",
+        "displayName": "VSC Markdown Editor",
+        "selector": [
+          {
+            "filenamePattern": "file:/**/*.MD"
+          },
+          {
+            "filenamePattern": "file:/**/*.mD"
+          },
+          {
+            "filenamePattern": "file:/**/*.Md"
+          },
+          {
+            "filenamePattern": "file:/**/*.md"
+          },
+          {
+            "filenamePattern": "file:/**/*.markdown"
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Markdown Editor",
+      "properties": {
+        "vsc-markdown.openOutline": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open markdown outline."
+        },
+        "vsc-markdown.hideToolbar": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide markdown toolbar."
+        },
+        "vsc-markdown.previewCode": {
+          "type": "boolean",
+          "default": true,
+          "description": "Preview code in markdown."
+        },
+        "vsc-markdown.previewCodeHighlight.showLineNumber": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Show line numbers in markdown preview code window. Only applies when `#vsc-markdown.previewCode#` is enabled."
+        },
+        "vsc-markdown.workspacePathAsImageBasePath": {
+          "type": "boolean",
+          "default": false,
+          "description": "Using workspace path as markdown image base path."
+        },
+        "vsc-markdown.pasterImgPath": {
+          "type": "string",
+          "default": "image/${fileName}/${now}.png",
+          "description": "Markdown paste image path, variables: workspaceDir, fileName, now."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "dev": "node build.ts --mode=development",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "build": "rimraf out && node build.ts --mode=production",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/vscode": "^1.64.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "esbuild": "^0.14.54",
+    "esbuild-plugin-copy": "^1.3.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "rimraf": "^6.0.1",
+    "@vscode/vsce": "^2.12.1"
+  },
+  "dependencies": {
+    "file-type": "^19.6.0"
+  }
 }

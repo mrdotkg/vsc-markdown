@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { MarkdownEditorProvider } from "./provider";
-import { MarkdownService } from "./service";
+import { Editor } from "./customMdEditor";
+import { MarkdownService } from "./editorServices";
 import { FileUtil } from "./common/fileUtil";
 import { Output } from "./common/output";
 
@@ -17,13 +17,22 @@ export function activate(context: vscode.ExtensionContext) {
   };
   FileUtil.init(context);
   const markdownService = new MarkdownService(context);
-  const markdownEditorProvider = new MarkdownEditorProvider(context);
+  const markdownEditorProvider = new Editor(context);
   context.subscriptions.push(
     vscode.commands.registerCommand("vsc-markdown.switch", (uri) => {
       markdownService.switchEditor(uri);
     }),
     vscode.commands.registerCommand("vsc-markdown.paste", () => {
       markdownService.loadClipboardImage();
+    }),
+    vscode.commands.registerCommand("vsc-markdown.insertH1", () => {
+      MarkdownService.insertHeading(1);
+    }),
+    vscode.commands.registerCommand("vsc-markdown.insertBold", () => {
+      MarkdownService.toggleEmphasis("bold");
+    }),
+    vscode.commands.registerCommand("vsc-markdown.insertList", () => {
+      MarkdownService.insertList(false);
     }),
     vscode.window.registerCustomEditorProvider(
       "vsc-markdown",

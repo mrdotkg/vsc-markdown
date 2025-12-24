@@ -5,6 +5,12 @@ This extension aims to replace the built in markdown preview of VS Code.
 ## Pre market release issues
 
 - [ ] No unused code.
+- [ ] Give toolbar via
+  - [ ] deleteValue()	Delete the selection
+  - [ ] updateValue(value: string) Update the selection
+  - [ ] getSelection(): string	Returns the selected string
+  - [ ] insertValue(value: string, render = true) Insert content at the focal point and default to Markdown rendering
+  - [ ] insertMD (md: string) Insert Markdown at the focus point
 - [X] Persist scroll position
 - [X] Editor focus on winodw focus
 - [X] Parse Images

@@ -9,6 +9,7 @@ import {
 
 let state;
 let editorContainerId = "editor";
+let vditorReady = false; // Track when Vditor is fully initialized
 
 function loadConfigs() {
   const elem = document.getElementById("configs");
@@ -109,6 +110,10 @@ waitForHandler(() => {
             scrollEditor(md.scrollTop);
             setupFocusManagement();
             imageParser(true);
+            
+            // Mark Vditor as fully ready
+            vditorReady = true;
+            window.vditorReady = true;
           },
         });
       })
