@@ -49,93 +49,278 @@
       },
       {
         "command": "vsc-markdown.insertH1",
-        "title": "Insert H1 Heading",
-        "icon": "$(symbol-method)"
+        "title": "BossMD: Insert H1 Heading",
+        "icon": "$(symbol-text)"
       },
       {
         "command": "vsc-markdown.insertH2",
-        "title": "Insert H2 Heading",
-        "icon": "$(symbol-class)"
+        "title": "BossMD: Insert H2 Heading",
+        "icon": "$(symbol-text)"
       },
       {
         "command": "vsc-markdown.insertH3",
-        "title": "Insert H3 Heading",
-        "icon": "$(symbol-namespace)"
+        "title": "BossMD: Insert H3 Heading",
+        "icon": "$(symbol-text)"
+      },
+      {
+        "command": "vsc-markdown.insertH4",
+        "title": "BossMD: Insert H4 Heading",
+        "icon": "$(symbol-text)"
+      },
+      {
+        "command": "vsc-markdown.insertH5",
+        "title": "BossMD: Insert H5 Heading",
+        "icon": "$(symbol-text)"
       },
       {
         "command": "vsc-markdown.insertBold",
-        "title": "Insert Bold Text",
+        "title": "BossMD: Insert Bold Text",
         "icon": "$(bold)"
       },
       {
         "command": "vsc-markdown.insertItalic",
-        "title": "Insert Italic Text",
+        "title": "BossMD: Insert Italic Text",
         "icon": "$(italic)"
       },
       {
         "command": "vsc-markdown.insertList",
-        "title": "Insert Unordered List",
+        "title": "BossMD: Insert Unordered List",
         "icon": "$(list-unordered)"
       },
       {
         "command": "vsc-markdown.insertOrderedList",
-        "title": "Insert Ordered List",
+        "title": "BossMD: Insert Ordered List",
         "icon": "$(list-ordered)"
       },
       {
         "command": "vsc-markdown.insertLink",
-        "title": "Insert Link",
+        "title": "BossMD: Insert Link",
         "icon": "$(link)"
       },
       {
         "command": "vsc-markdown.insertImage",
-        "title": "Insert Image",
+        "title": "BossMD: Insert Image",
         "icon": "$(file-media)"
       },
       {
         "command": "vsc-markdown.insertCodeBlock",
-        "title": "Insert Code Block",
+        "title": "BossMD: Insert Code Block",
         "icon": "$(code)"
       },
       {
         "command": "vsc-markdown.insertInlineCode",
-        "title": "Insert Inline Code",
+        "title": "BossMD: Insert Inline Code",
         "icon": "$(symbol-string)"
       },
       {
         "command": "vsc-markdown.insertBlockquote",
-        "title": "Insert Blockquote",
+        "title": "BossMD: Insert Blockquote",
         "icon": "$(quote)"
       },
       {
-        "command": "vsc-markdown.insertHorizontalRule",
-        "title": "Insert Horizontal Rule",
-        "icon": "$(dash)"
-      },
-      {
         "command": "vsc-markdown.insertTable",
-        "title": "Insert Table",
+        "title": "BossMD: Insert Table",
         "icon": "$(table)"
       },
       {
         "command": "vsc-markdown.insertStrikethrough",
-        "title": "Insert Strikethrough",
+        "title": "BossMD: Insert Strikethrough",
         "icon": "$(strikethrough)"
       },
       {
         "command": "vsc-markdown.insertEmptyBlock",
-        "title": "Insert Empty Block",
+        "title": "BossMD: Insert Empty Block",
         "icon": "$(add)"
       },
       {
-        "command": "vsc-markdown.insertH4",
-        "title": "Insert H4 Heading",
-        "icon": "$(symbol-property)"
+        "command": "vsc-markdown.insertTaskList",
+        "title": "BossMD: Insert Task List",
+        "icon": "$(tasklist)"
       },
       {
-        "command": "vsc-markdown.insertH5",
-        "title": "Insert H5 Heading",
-        "icon": "$(symbol-variable)"
+        "command": "vsc-markdown.insertHorizontalRule",
+        "title": "BossMD: Insert Horizontal Rule",
+        "icon": "$(dash)"
+      },
+      {
+        "command": "vsc-markdown.insertBlockBefore",
+        "title": "BossMD: Insert Block to Before",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "vsc-markdown.insertBlockEnd",
+        "title": "BossMD: Insert Block to End",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "vsc-markdown.undo",
+        "title": "BossMD: Undo",
+        "icon": "$(undo)"
+      },
+      {
+        "command": "vsc-markdown.redo",
+        "title": "BossMD: Redo",
+        "icon": "$(redo)"
+      },
+      {
+        "command": "vsc-markdown.moveBlockUp",
+        "title": "BossMD: Move Block Up",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "vsc-markdown.moveBlockDown",
+        "title": "BossMD: Move Block Down",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "vsc-markdown.toggleFullscreen",
+        "title": "BossMD: Toggle Fullscreen",
+        "icon": "$(screen-full)"
+      },
+      {
+        "command": "vsc-markdown.increaseHeading",
+        "title": "BossMD: Increase Heading Level",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "vsc-markdown.decreaseHeading",
+        "title": "BossMD: Decrease Heading Level",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "vsc-markdown.indentList",
+        "title": "BossMD: Indent List",
+        "icon": "$(indent)"
+      },
+      {
+        "command": "vsc-markdown.unindentList",
+        "title": "BossMD: Unindent List",
+        "icon": "$(outdent)"
+      },
+      {
+        "command": "vsc-markdown.toggleTaskCheck",
+        "title": "BossMD: Toggle Task Check",
+        "icon": "$(check)"
+      },
+      {
+        "command": "vsc-markdown.insertTableRowAbove",
+        "title": "BossMD: Insert Table Row Above",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "vsc-markdown.insertTableRowBelow",
+        "title": "BossMD: Insert Table Row Below",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "vsc-markdown.deleteTableRow",
+        "title": "BossMD: Delete Table Row",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "vsc-markdown.insertTableColLeft",
+        "title": "BossMD: Insert Table Column Left",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "vsc-markdown.insertTableColRight",
+        "title": "BossMD: Insert Table Column Right",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "vsc-markdown.deleteTableCol",
+        "title": "BossMD: Delete Table Column",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "vsc-markdown.tableAlignLeft",
+        "title": "BossMD: Table Align Left",
+        "icon": "$(align-left)"
+      },
+      {
+        "command": "vsc-markdown.tableAlignCenter",
+        "title": "BossMD: Table Align Center",
+        "icon": "$(align-center)"
+      },
+      {
+        "command": "vsc-markdown.tableAlignRight",
+        "title": "BossMD: Table Align Right",
+        "icon": "$(align-right)"
+      },
+      {
+        "command": "vsc-markdown.insertEmoji",
+        "title": "BossMD: Insert Emoji",
+        "icon": "$(smiley)"
+      },
+      {
+        "command": "vsc-markdown.toggleHeadingMenu",
+        "title": "BossMD: Heading Menu",
+        "icon": "$(list-ordered)"
+      },
+      {
+        "command": "vsc-markdown.insertBlockquoteAdvanced",
+        "title": "BossMD: Insert Blockquote (Advanced)",
+        "icon": "$(quote)"
+      },
+      {
+        "command": "vsc-markdown.toggleLinkInput",
+        "title": "BossMD: Toggle Link Input",
+        "icon": "$(link)"
+      },
+      {
+        "command": "vsc-markdown.toggleCodeBlockInput",
+        "title": "BossMD: Toggle Code Block Input",
+        "icon": "$(code)"
+      },
+      {
+        "command": "vsc-markdown.hideCodeBlockEdit",
+        "title": "BossMD: Hide Code Block Edit",
+        "icon": "$(close)"
+      },
+      {
+        "command": "vsc-markdown.selectAllCodeBlock",
+        "title": "BossMD: Select All Code Block",
+        "icon": "$(select-all)"
+      },
+      {
+        "command": "vsc-markdown.indentListAdvanced",
+        "title": "BossMD: Indent List (Advanced)",
+        "icon": "$(indent)"
+      },
+      {
+        "command": "vsc-markdown.unindentListAdvanced",
+        "title": "BossMD: Unindent List (Advanced)",
+        "icon": "$(outdent)"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretToInput",
+        "title": "BossMD: Table: Move Caret to Input",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretPrevious",
+        "title": "BossMD: Table: Move Caret to Previous Cell",
+        "icon": "$(arrow-left)"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretNext",
+        "title": "BossMD: Table: Move Caret to Next Cell",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "vsc-markdown.insertH6",
+        "title": "BossMD: Insert H6 Heading",
+        "icon": "$(symbol-text)"
+      },
+      {
+        "command": "vsc-markdown.atUser",
+        "title": "BossMD: At User",
+        "icon": "$(mention)"
+      },
+      {
+        "command": "vsc-markdown.removeMistyped",
+        "title": "BossMD: Remove Mistyped",
+        "icon": "$(undo)"
       }
     ],
     "keybindings": [
@@ -154,7 +339,266 @@
       {
         "command": "vsc-markdown.insertH1",
         "key": "ctrl+alt+1",
-        "mac": "cmd+alt+1",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH2",
+        "key": "ctrl+alt+2",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH3",
+        "key": "ctrl+alt+3",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH4",
+        "key": "ctrl+alt+4",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH5",
+        "key": "ctrl+alt+5",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertBold",
+        "key": "ctrl+b",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertItalic",
+        "key": "ctrl+i",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertList",
+        "key": "ctrl+l",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertOrderedList",
+        "key": "ctrl+o",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertLink",
+        "key": "ctrl+k",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertCodeBlock",
+        "key": "ctrl+u",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertInlineCode",
+        "key": "ctrl+g",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertBlockquote",
+        "key": "ctrl+;",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTable",
+        "key": "ctrl+m",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertStrikethrough",
+        "key": "ctrl+s",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTaskList",
+        "key": "ctrl+j",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertHorizontalRule",
+        "key": "ctrl+shift+h",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertBlockBefore",
+        "key": "ctrl+shift+b",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertBlockEnd",
+        "key": "ctrl+shift+e",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.undo",
+        "key": "ctrl+z",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.redo",
+        "key": "ctrl+y",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.moveBlockUp",
+        "key": "ctrl+shift+u",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.moveBlockDown",
+        "key": "ctrl+shift+d",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.toggleFullscreen",
+        "key": "ctrl+'",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.increaseHeading",
+        "key": "ctrl+=",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.decreaseHeading",
+        "key": "ctrl+-",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.indentList",
+        "key": "tab",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.unindentList",
+        "key": "shift+tab",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.toggleTaskCheck",
+        "key": "ctrl+shift+j",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTableRowAbove",
+        "key": "ctrl+shift+f",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTableRowBelow",
+        "key": "ctrl+=",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.deleteTableRow",
+        "key": "ctrl+-",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTableColLeft",
+        "key": "ctrl+shift+g",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertTableColRight",
+        "key": "ctrl+shift+=",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.deleteTableCol",
+        "key": "ctrl+shift+-",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableAlignLeft",
+        "key": "ctrl+shift+l",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableAlignCenter",
+        "key": "ctrl+shift+c",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableAlignRight",
+        "key": "ctrl+shift+r",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertEmoji",
+        "key": ":",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.toggleHeadingMenu",
+        "key": "ctrl+h",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertBlockquoteAdvanced",
+        "key": "ctrl+shift+;",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.toggleLinkInput",
+        "key": "alt+enter",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.toggleCodeBlockInput",
+        "key": "alt+enter",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.hideCodeBlockEdit",
+        "key": "escape",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.selectAllCodeBlock",
+        "key": "ctrl+a",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.indentListAdvanced",
+        "key": "ctrl+shift+i",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.unindentListAdvanced",
+        "key": "ctrl+shift+o",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretToInput",
+        "key": "alt+enter",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretPrevious",
+        "key": "shift+tab",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.tableMoveCaretNext",
+        "key": "tab",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.insertH6",
+        "key": "ctrl+alt+6",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.atUser",
+        "key": "@",
+        "when": "editorTextFocus && editorLangId == markdown"
+      },
+      {
+        "command": "vsc-markdown.removeMistyped",
+        "key": "backspace",
         "when": "editorTextFocus && editorLangId == markdown"
       }
     ],
@@ -228,9 +672,10 @@
     }
   },
   "scripts": {
-    "dev": "node build.ts --mode=development",
+    "dev": "npm run gen:contributes && node build.ts --mode=development",
+    "gen:contributes": "npx ts-node scripts/generateContributes.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
-    "build": "rimraf out && node build.ts --mode=production",
+    "build": "npm run gen:contributes && rimraf out && node build.ts --mode=production",
     "package": "vsce package --no-dependencies",
     "publish": "vsce publish --no-dependencies",
     "vscode:prepublish": "npm run build"
