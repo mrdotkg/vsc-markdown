@@ -18,6 +18,18 @@ export function activate(context: vscode.ExtensionContext) {
   FileUtil.init(context);
   const markdownService = new MarkdownService(context);
   const markdownEditorProvider = new Editor(context);
+  
+  // Track when switching between editors
+  context.subscriptions.push(
+    vscode.window.onDidChangeActiveTextEditor(() => {
+      // Clear active webview if switching to a non-markdown editor
+      const activeEditor = vscode.window.activeTextEditor;
+      if (!activeEditor || activeEditor.document.languageId !== 'markdown') {
+        MarkdownService.setActiveWebview(null);
+        vscode.commands.executeCommand('setContext', 'vsc-markdown.isMarkdownEditorActive', false);
+      }
+    })
+  );
   context.subscriptions.push(
     ...Hotkeys.map((config) =>
       vscode.commands.registerCommand(config.command, () => {

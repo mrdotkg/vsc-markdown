@@ -84,6 +84,7 @@ export class Editor implements vscode.CustomTextEditorProvider {
   private setupEditorState() {
     Holder.activeDocument = this.document;
     MarkdownService.setActiveWebview(this.webview);
+    vscode.commands.executeCommand('setContext', 'vsc-markdown.isMarkdownEditorActive', true);
   }
 
   private postToWebview(type: string, value: any) {
@@ -99,9 +100,11 @@ export class Editor implements vscode.CustomTextEditorProvider {
         this.toolbar.updateCount(this.content);
         this.toolbar.show();
         MarkdownService.setActiveWebview(this.webview);
+        vscode.commands.executeCommand('setContext', 'vsc-markdown.isMarkdownEditorActive', true);
       } else {
         this.toolbar.hide();
         MarkdownService.setActiveWebview(null);
+        vscode.commands.executeCommand('setContext', 'vsc-markdown.isMarkdownEditorActive', false);
       }
     });
 

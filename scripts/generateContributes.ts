@@ -67,12 +67,13 @@ function generateCommands(hotkeys: Hotkey[]) {
 }
 
 function generateKeybindings(hotkeys: Hotkey[]) {
+  // Generate keybindings with context guard - only active when markdown editor is open
   const keybindings = hotkeys
     .filter((hotkey) => hotkey.keybinding && hotkey.keybinding.length > 0)
     .map((hotkey) => ({
       command: hotkey.command,
       key: hotkey.keybinding,
-      when: "editorTextFocus && editorLangId == markdown",
+      when: "vsc-markdown.isMarkdownEditorActive",
     }));
 
   return keybindings;
@@ -118,7 +119,7 @@ function updatePackageJson() {
 
   console.log(`✓ Updated package.json`);
   console.log(`  - Generated ${commands.length} commands`);
-  console.log(`  - Generated ${keybindings.length} keybindings`);
+  console.log(`  - Generated ${keybindings.length} keybindings (disabled outside markdown editor)`);
 }
 
 // Run if executed directly

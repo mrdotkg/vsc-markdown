@@ -325,281 +325,264 @@
     ],
     "keybindings": [
       {
-        "command": "vsc-markdown.paste",
-        "key": "ctrl+v",
-        "mac": "cmd+v",
-        "when": "!terminalFocus && !filesExplorerFocus && resourceLangId == markdown"
-      },
-      {
-        "command": "vsc-markdown.switch",
-        "key": "ctrl+alt+e",
-        "mac": "ctrl+cmd+e",
-        "when": "editorTextFocus && editorLangId == markdown"
-      },
-      {
-        "command": "vsc-markdown.toggleFullscreen",
-        "key": "ctrl+'",
-        "when": "editorTextFocus && editorLangId == markdown"
-      },
-      {
         "command": "vsc-markdown.insertH1",
         "key": "ctrl+alt+1",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertH2",
         "key": "ctrl+alt+2",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertH3",
         "key": "ctrl+alt+3",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertH4",
         "key": "ctrl+alt+4",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertH5",
         "key": "ctrl+alt+5",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertBold",
         "key": "ctrl+b",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertItalic",
         "key": "ctrl+i",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertList",
         "key": "ctrl+l",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertOrderedList",
         "key": "ctrl+o",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertLink",
         "key": "ctrl+k",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertCodeBlock",
         "key": "ctrl+u",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertInlineCode",
         "key": "ctrl+g",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertBlockquote",
         "key": "ctrl+;",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTable",
         "key": "ctrl+m",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertStrikethrough",
         "key": "ctrl+s",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTaskList",
         "key": "ctrl+j",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertHorizontalRule",
         "key": "ctrl+shift+h",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertBlockBefore",
         "key": "ctrl+shift+b",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertBlockEnd",
         "key": "ctrl+shift+e",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.undo",
         "key": "ctrl+z",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.redo",
         "key": "ctrl+y",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.moveBlockUp",
         "key": "ctrl+shift+u",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.moveBlockDown",
         "key": "ctrl+shift+d",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.increaseHeading",
         "key": "ctrl+=",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.decreaseHeading",
         "key": "ctrl+-",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.indentList",
         "key": "tab",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.unindentList",
         "key": "shift+tab",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.toggleTaskCheck",
         "key": "ctrl+shift+j",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTableRowAbove",
         "key": "ctrl+shift+f",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTableRowBelow",
         "key": "ctrl+=",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.deleteTableRow",
         "key": "ctrl+-",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTableColLeft",
         "key": "ctrl+shift+g",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertTableColRight",
         "key": "ctrl+shift+=",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.deleteTableCol",
         "key": "ctrl+shift+-",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableAlignLeft",
         "key": "ctrl+shift+l",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableAlignCenter",
         "key": "ctrl+shift+c",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableAlignRight",
         "key": "ctrl+shift+r",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertEmoji",
         "key": ":",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.toggleHeadingMenu",
         "key": "ctrl+h",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertBlockquoteAdvanced",
         "key": "ctrl+shift+;",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.toggleLinkInput",
         "key": "alt+enter",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.toggleCodeBlockInput",
         "key": "alt+enter",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.hideCodeBlockEdit",
         "key": "escape",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.selectAllCodeBlock",
         "key": "ctrl+a",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.indentListAdvanced",
         "key": "ctrl+shift+i",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.unindentListAdvanced",
         "key": "ctrl+shift+o",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableMoveCaretToInput",
         "key": "alt+enter",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableMoveCaretPrevious",
         "key": "shift+tab",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.tableMoveCaretNext",
         "key": "tab",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.insertH6",
         "key": "ctrl+alt+6",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.atUser",
         "key": "@",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       },
       {
         "command": "vsc-markdown.removeMistyped",
         "key": "backspace",
-        "when": "editorTextFocus && editorLangId == markdown"
+        "when": "vsc-markdown.isMarkdownEditorActive"
       }
     ],
     "menus": {

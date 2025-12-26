@@ -11,11 +11,13 @@ import { Holder } from "./common/holder";
  */
 export class MarkdownService {
   private static activeWebview: vscode.Webview | null = null;
+  private static isMarkdownEditorActive: boolean = false;
 
   constructor(private context: vscode.ExtensionContext) {}
 
   static setActiveWebview(webview: vscode.Webview | null) {
     this.activeWebview = webview;
+    this.isMarkdownEditorActive = webview !== null;
   }
 
   private static sendVditorCommand(command: string, data?: any): boolean {
@@ -32,6 +34,7 @@ export class MarkdownService {
   }
 
   static format(type, shortcut) {
+    // Execute the command - webview existence is already checked in sendVditorCommand
     this.sendVditorCommand(type, shortcut);
   }
 
